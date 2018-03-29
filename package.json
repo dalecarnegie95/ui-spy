@@ -1,7 +1,7 @@
 {
   "name": "ui-spy",
   "version": "1.0.0",
-  "description": "",
+  "description": "A new way to spy your UI, withut a lot of requests",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
