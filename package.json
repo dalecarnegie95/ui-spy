@@ -19,6 +19,10 @@
     ]
   },
   "author": "Alisson Steffens",
+  "now": {
+    "name": "Ui Spy",
+    "alias": "ui-spy.now.sh"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/npm/npm.git"
