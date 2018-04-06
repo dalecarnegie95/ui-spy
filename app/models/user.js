@@ -5,7 +5,9 @@ const UserSchema = {
   operational_system: String,
   is_online: Boolean,
   portugol_version: String,
-  last_use: String
+  last_use: String,
+  ip: String,
+  extIp: String
 }
 
 const User = mongoose.model('User', UserSchema)

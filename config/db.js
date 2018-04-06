@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://user:senha123@ds117749.mlab.com:17749/ui-spy', () => {
+mongoose.connect('mongodb://<user>:<pass>@ds237389.mlab.com:37389/<db>', () => {
   console.log('mongodb connected')
 })
 

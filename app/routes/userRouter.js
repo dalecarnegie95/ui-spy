@@ -2,6 +2,7 @@ const express = require('express')
 const asyncHandler = require('../utils/asyncHandler')
 const dbController = require('../controllers/dbController')
 const User = require('../models/user')
+const requestIp = require('request-ip')
 
 const router = express.Router()
 
@@ -16,11 +17,13 @@ router.get('/:user', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
+  req.body.extIp = requestIp.getClientIp(req)
   const result = await asyncHandler.handleAsyncMethod(dbController.createSchema, [User, req.body])
   result !== 'error' ? res.send(result) : res.send({'error': 'An error has occurred'})
 })
 
 router.put('/:id', async (req, res) => {
+  req.body.extIp = requestIp.getClientIp(req)
   const result = await asyncHandler.handleAsyncMethod(dbController.updateSchema, [User, req.params.id, req.body])
   result !== 'error' ? res.send(result) : res.send({'error': 'An error has occurred'})
 })
