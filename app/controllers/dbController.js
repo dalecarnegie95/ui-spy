@@ -16,6 +16,11 @@ exports.getSchemaByProperty = async (Schema, propertyName, propertyValue) => {
   return result
 }
 
+exports.getDistinctSchemaAtributesByProperty = async (Schema, propertyName) => {
+  const result = await Schema.find().distinct(propertyName).lean()
+  return result
+}
+
 exports.createSchema = async (Schema, info) => {
   const model = new Schema({
     ...info

@@ -11,10 +11,22 @@ router.get('/', async (req, res) => {
   result !== 'error' ? res.send(result) : res.send({'error': 'An error has occurred'})
 })
 
+router.get('/distinct/:atributo', async (req, res) => {
+  const result = await asyncHandler.handleAsyncMethod(dbController.getDistinctSchemaAtributesByProperty, [User, req.params.atributo])
+  result !== 'error' ? res.send(result) : res.send({'error': 'An error has occurred'})
+})
+
+router.get('/:prop/:value', async (req, res) => {
+  const result = await asyncHandler.handleAsyncMethod(dbController.getSchemaByProperty, [User, req.params.prop, req.params.value])
+  result !== 'error' ? res.send(result) : res.send({'error': 'An error has occurred'})
+})
+
 router.get('/:user', async (req, res) => {
   const result = await asyncHandler.handleAsyncMethod(dbController.getSchemaByProperty, [User, 'user', req.params.user])
   result !== 'error' ? res.send(result) : res.send({'error': 'An error has occurred'})
 })
+
+
 
 router.post('/', async (req, res) => {
   req.body.extIp = requestIp.getClientIp(req)
