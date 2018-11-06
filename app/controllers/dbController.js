@@ -34,6 +34,11 @@ exports.updateSchema = async (Schema, id, modifications) => {
   return updatedModel
 }
 
+exports.insertCompilationSchema = async (Schema, id, compilation) => {
+  const updatedModel = await Schema.findOneAndUpdate({user: id}, {$push: {compilations: compilation}})
+  return updatedModel
+}
+
 exports.deleteSchema = async (Schema, id) => {
   await Schema.findByIdAndRemove(id)
 }

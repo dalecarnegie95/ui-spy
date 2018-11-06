@@ -1,5 +1,34 @@
 const mongoose = require('../../config/db')
 
+const CompileError = {
+  code : String,
+  line : String,
+  column : String
+}
+
+ const CompileWarning = {
+  message : String,
+  line : String,
+  column : String
+ }
+
+ const ExecutionError = {
+  message : String,
+  line : String,
+  column : String
+ }
+
+const CompilationSchema = {
+  successful_compilation : Boolean,
+  compile_date : String,
+  numberOfFunctions : String,
+  number_characters : String,    
+  number_lines : String,
+  compilation_errors : [CompileError],    
+  warnings : [CompileWarning],
+  execution_error: ExecutionError
+}
+
 const UserSchema = {
   user: String,
   operational_system: String,
@@ -7,7 +36,8 @@ const UserSchema = {
   portugol_version: String,
   last_use: String,
   ip: String,
-  extIp: String
+  extIp: String,
+  compilations: [CompilationSchema]  
 }
 
 const User = mongoose.model('User', UserSchema)

@@ -40,4 +40,10 @@ router.put('/:id', async (req, res) => {
   result !== 'error' ? res.send(result) : res.send({'error': 'An error has occurred'})
 })
 
+router.put('/compilation/:id', async (req, res) => {
+  req.body.extIp = requestIp.getClientIp(req)
+  const result = await asyncHandler.handleAsyncMethod(dbController.insertCompilationSchema, [User, req.params.id, req.body])
+  result !== 'error' ? res.send(result) : res.send({'error': 'An error has occurred'})
+})
+
 module.exports = router
