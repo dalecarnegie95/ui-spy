@@ -7,13 +7,13 @@ const CompileError = {
 }
 
  const CompileWarning = {
-  message : String,
+  code : String,
   line : String,
   column : String
  }
 
  const ExecutionError = {
-  message : String,
+  code : String,
   line : String,
   column : String
  }
@@ -26,7 +26,9 @@ const CompilationSchema = {
   number_lines : String,
   compilation_errors : [CompileError],    
   warnings : [CompileWarning],
-  execution_error: ExecutionError
+  execution_error: ExecutionError,
+  user_name : String,
+  local_machine_hostname : String
 }
 
 const UserSchema = {
