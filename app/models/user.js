@@ -28,7 +28,8 @@ const CompilationSchema = {
   warnings : [CompileWarning],
   execution_error: ExecutionError,
   user_name : String,
-  local_machine_hostname : String
+  local_machine_hostname : String,
+  help_examples : [String]
 }
 
 const UserSchema = {
